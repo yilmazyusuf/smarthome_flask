@@ -13,19 +13,38 @@ from datetime import datetime
 app = Flask(__name__)
 
 
+@app.route("/lights/living_room_led")
+def lights_living_room_led():
+    current_status = get_current_status('living_room_led')
+    changed = change_status(current_status,16)
+    update(changed,'living_room_led')
+
+    return "ok"
+
+
 
 @app.route("/lights/living_room_middle")
 def lights_living_room_middle():
     current_status = get_current_status('living_room_middle')
-    changed = change_status(current_status,4)
+    changed = change_status(current_status,20)
     update(changed,'living_room_middle')
 
     return "ok"
 
+@app.route("/lights/sleeping_room")
+def lights_sleeping_room():
+    current_status = get_current_status('sleeping_room')
+    changed = change_status(current_status,21)
+    update(changed,'sleeping_room')
+
+    return "ok"
+
+
+
 @app.route("/lights/aquarium")
 def lights_aquarium():
     current_status = get_current_status('aquarium')
-    changed = change_status(current_status,26)
+    changed = change_status(current_status,4)
     update(changed,'aquarium')
 
     return "ok"
@@ -33,7 +52,7 @@ def lights_aquarium():
 @app.route("/lights/qubisch")
 def lights_qubisch():
     current_status = get_current_status('qubisch')
-    changed = change_status(current_status,21)
+    changed = change_status(current_status,26)
     update(changed,'qubisch')
 
     return "ok"
