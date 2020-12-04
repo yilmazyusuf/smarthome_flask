@@ -22,6 +22,23 @@ def lights_living_room_middle():
 
     return "ok"
 
+@app.route("/lights/living_room_led")
+def lights_living_room_led():
+    current_status = get_current_status('living_room_led')
+    changed = change_status(current_status,17)
+    update(changed,'living_room_led')
+
+    return "ok"
+
+@app.route("/lights/sleeping_room")
+def lights_sleeping_room():
+    current_status = get_current_status('sleeping_room')
+    changed = change_status(current_status,27)
+    update(changed,'sleeping_room')
+
+    return "ok"
+
+
 @app.route("/lights/aquarium")
 def lights_aquarium():
     current_status = get_current_status('aquarium')
@@ -44,7 +61,7 @@ def lights_qubisch():
 def curtains_living_room():
     
     #23 ln 1 24 ln 2 en 25
-    
+
     
     current_status = get_curtain_status('living_room')
     update_curtain(0,'living_room')
@@ -52,7 +69,7 @@ def curtains_living_room():
     return process_curtain(current_status)
 
 def update_curtain(status,room):
-    conn = sqlite3.connect("/home/pi/qubis.db")
+    conn = sqlite3.connect("/home/pi/Documents/smarthome_flask/qubis.db")
     cursor = conn.cursor()
     cursor.execute('update curtains set status  = ? where room=?',(status,room))
     conn.commit()
@@ -124,7 +141,7 @@ def curtains_close():
     GPIO.cleanup([23,24,25])
 
 def get_curtain_status(curtain_room):
-    conn = sqlite3.connect("/home/pi/qubis.db")
+    conn = sqlite3.connect("/home/pi/Documents/smarthome_flask/qubis.db")
     cursor = conn.cursor()
     room = (curtain_room,)
     living_room_status = cursor.execute('select status from curtains where room=?',room)
@@ -161,14 +178,14 @@ def change_status(status,pin):
         return 0
 
 def get_current_status(node):
-    conn = sqlite3.connect("/home/pi/qubis.db")
+    conn = sqlite3.connect("/home/pi/Documents/smarthome_flask/qubis.db")
     cursor = conn.cursor()
     room = (node,)
     status = cursor.execute('select status from lights where name=?',room)
     return cursor.fetchone()[0] 
 
 def update(status,node):
-    conn = sqlite3.connect("/home/pi/qubis.db")
+    conn = sqlite3.connect("/home/pi/Documents/smarthome_flask/qubis.db")
     cursor = conn.cursor()
     cursor.execute('update lights set status  = ? where name=?',(status,node))
     conn.commit()
