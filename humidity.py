@@ -4,5 +4,5 @@ DHT_PIN = 5
 
 def getHumudity():
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-    response =  {'temperature':temperature,'humidity':humidity}
+    response =  {'temperature':"{0:0.1f}".format(temperature),'humidity':"{0:0.1f}".format(humidity)}
     return response
