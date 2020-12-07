@@ -3,7 +3,6 @@ from flask import request
 import RPi.GPIO as GPIO
 import sqlite3
 import json
-import sys
 from time import sleep
 from datetime import datetime
 
