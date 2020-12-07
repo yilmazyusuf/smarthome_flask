@@ -3,15 +3,20 @@ from flask import request
 import RPi.GPIO as GPIO
 import sqlite3
 import json
+from humidity import *
 from time import sleep
 from datetime import datetime
-
+from flask import jsonify
 
 curtain_pins = {'living_room':{'a':23,'b':24,'en':25,'action_second':16},'qubisch_room':{'a':6,'b':13,'en':19,'action_second':47}}
 
 app = Flask(__name__)
 
-
+@app.route("/humidity")
+def humidity():
+    humud = getHumudity() 
+    return jsonify(humud)
+    
 
 @app.route("/lights/living_room_middle")
 def lights_living_room_middle():
