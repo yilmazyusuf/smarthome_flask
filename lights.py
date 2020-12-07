@@ -60,8 +60,7 @@ def lights_qubisch():
 @app.route("/curtains/living_room")
 def curtains_living_room():
     #23 ln 1 24 ln 2 en 25
-    #curtain_room ='living_room'
-    curtain_room = 'qubisch_room'
+    curtain_room ='living_room'
     current_status = get_curtain_status(curtain_room)
     update_curtain(0,curtain_room)
     return process_curtain(current_status,curtain_room)
