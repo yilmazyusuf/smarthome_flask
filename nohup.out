@@ -1,0 +1,80 @@
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[MD-X7BT][0m# quit
+[0;94m[MD-X7BT][0m# [K./connect_speaker.sh: line 5: agent: command not found
+./connect_speaker.sh: line 6: default-agent: command not found
+./connect_speaker.sh: line 7: power: command not found
+./connect_speaker.sh: line 8: pair: command not found
+./connect_speaker.sh: line 9: trust: command not found
+./connect_speaker.sh: line 10: connect: command not found
+./connect_speaker.sh: line 4: agent: command not found
+./connect_speaker.sh: line 4: default-agent: command not found
+./connect_speaker.sh: line 4: power: command not found
+./connect_speaker.sh: line 5: pair: command not found
+./connect_speaker.sh: line 8: connect: command not found
+E: [pulseaudio] main.c: Too many arguments.
+./connect_speaker.sh: line 2: connect: command not found
+./connect_speaker.sh: line 2: trust: command not found
+./connect_speaker.sh: line 2: default-agent: command not found
+./connect_speaker.sh: line 2: agent: command not found
+./connect_speaker.sh: line 2: power: command not found
+./connect_speaker.sh: line 2: pair: command not found
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+E: [pulseaudio] main.c: Daemon startup failed.
+Agent registered
+[0;94m[MD-X7BT][0m# quit
+[0;94m[MD-X7BT][0m# [KE: [pulseaudio] main.c: Failed to kill daemon: No such process
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[MD-X7BT][0m# quit
+[0;94m[MD-X7BT][0m# [K./connect_speaker.sh: line 6: agent: command not found
+./connect_speaker.sh: line 7: default-agent: command not found
+./connect_speaker.sh: line 8: power: command not found
+./connect_speaker.sh: line 9: pair: command not found
+./connect_speaker.sh: line 10: trust: command not found
+./connect_speaker.sh: line 11: connect: command not found
+su: invalid option -- 'k'
+Try 'su --help' for more information.
+E: [pulseaudio] main.c: Too many arguments.
+E: [pulseaudio] main.c: Failed to kill daemon: No such process
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[bluetooth][0m# quit
+[0;94m[bluetooth][0m# [K./connect_speaker.sh: line 6: agent: command not found
+./connect_speaker.sh: line 7: default-agent: command not found
+./connect_speaker.sh: line 8: power: command not found
+./connect_speaker.sh: line 9: pair: command not found
+./connect_speaker.sh: line 10: trust: command not found
+./connect_speaker.sh: line 11: connect: command not found
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[bluetooth][0m# quit
+[0;94m[bluetooth][0m# [K./connect_speaker.sh: line 6: agent: command not found
+./connect_speaker.sh: line 7: default-agent: command not found
+./connect_speaker.sh: line 8: power: command not found
+./connect_speaker.sh: line 9: pair: command not found
+./connect_speaker.sh: line 10: trust: command not found
+./connect_speaker.sh: line 11: connect: command not found
+E: [pulseaudio] main.c: Failed to kill daemon: No such process
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[bluetooth][0m# quit
+[0;94m[bluetooth][0m# [K./connect_speaker.sh: line 6: agent: command not found
+./connect_speaker.sh: line 7: default-agent: command not found
+./connect_speaker.sh: line 8: power: command not found
+./connect_speaker.sh: line 9: pair: command not found
+./connect_speaker.sh: line 10: trust: command not found
+./connect_speaker.sh: line 11: connect: command not found
+E: [pulseaudio] main.c: Failed to kill daemon: No such process
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+Agent registered
+[0;94m[MD-X7BT][0m# quit
+[0;94m[MD-X7BT][0m# [K./connect_speaker.sh: line 6: agent: command not found
+./connect_speaker.sh: line 7: default-agent: command not found
+./connect_speaker.sh: line 8: power: command not found
+./connect_speaker.sh: line 9: pair: command not found
+./connect_speaker.sh: line 10: trust: command not found
+./connect_speaker.sh: line 11: connect: command not found
+Agent registered
+[0;94m[MD-X7BT][0m# quit
+[0;94m[MD-X7BT][0m# [K

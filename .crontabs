@@ -1,0 +1,3 @@
+0 1 * * * /usr/bin/python3 /home/pi/Documents/smarthome_flask/prayer_times.py >> /var/log/smart_home.log 2>&1
+* * * * * /usr/bin/python3 /home/pi/Documents/smarthome_flask/call_to_prayer.py >> /var/log/smart_home.log 2>&1
+* * * * * /usr/bin/python3 /home/pi/Documents/smarthome_flask/curtains_automation.py >> /var/log/smart_home.log 2>&1
