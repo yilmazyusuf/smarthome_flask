@@ -18,7 +18,7 @@ qubisch_open  = (datetime.datetime.strptime(r['sunrise'], '%H:%M') +  datetime.t
 living_room_close = (datetime.datetime.strptime(r['maghrib'], '%H:%M') -  datetime.timedelta(minutes=30)).strftime('%H:%M')
 qubisch_close = (datetime.datetime.strptime(r['maghrib'], '%H:%M') -  datetime.timedelta(minutes=25)).strftime('%H:%M')
 
-conn = http.client.HTTPConnection("http://localhost:5000")
+conn = http.client.HTTPConnection("localhost:5000")
 
 if(living_room_open == current or living_room_close == current):
     conn.request("GET", "/curtains/living_room")
