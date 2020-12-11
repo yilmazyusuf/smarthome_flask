@@ -26,6 +26,6 @@ if((current_time  in call_to_prayer_times) == True):
     call_to_prayer_file = random.choice(os.listdir(prayers_path))
     file_path = prayers_path + '/' + call_to_prayer_file 
     #os.system('nohup ./connect_speaker.sh </dev/null &>/dev/null &')
-    os.system('mplayer -volume 100 '+file_path)
+    os.system('mplayer -ao alsa:device=hw=1.0 '+file_path)
     print("Prayer Time:")
     
