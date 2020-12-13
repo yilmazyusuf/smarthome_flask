@@ -8,7 +8,7 @@ from time import sleep
 from datetime import datetime
 from flask import jsonify
 
-curtain_pins = {'living_room':{'a':23,'b':24,'en':25,'action_second':16},'qubisch_room':{'a':6,'b':13,'en':19,'action_second':47}}
+curtain_pins = {'living_room':{'a':23,'b':24,'en':25,'action_second':19},'qubisch_room':{'a':6,'b':13,'en':19,'action_second':49}}
 
 app = Flask(__name__)
 
