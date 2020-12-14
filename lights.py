@@ -7,15 +7,30 @@ from humidity import *
 from time import sleep
 from datetime import datetime
 from flask import jsonify
+import os
 
 curtain_pins = {'living_room':{'a':23,'b':24,'en':25,'action_second':19},'qubisch_room':{'a':6,'b':13,'en':19,'action_second':49}}
 
 app = Flask(__name__)
 
+UPLOAD_FOLDER = '/home/pi/Documents/smarthome_flask/streams'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route("/humidity")
 def humidity():
     humud = getHumudity() 
     return jsonify(humud)
+
+@app.route("/stream",methods=['GET', 'POST'])
+def stream():
+
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file.filename)
+        fl = uploaded_file.save(file_path)
+        os.system('amixer -c 1 set PCM 50%')
+        os.system('mplayer -ao alsa:device=hw=1.0 '+file_path + ' > /dev/null 2>&1')
+    return uploaded_file.filename 
     
 
 @app.route("/lights/living_room_middle")
