@@ -36,7 +36,7 @@ def stream():
 @app.route("/lights/living_room_middle")
 def lights_living_room_middle():
     current_status = get_current_status('living_room_middle')
-    changed = change_status(current_status,4)
+    changed = change_status(current_status,22)
     update(changed,'living_room_middle')
 
     return "ok"
