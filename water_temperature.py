@@ -40,7 +40,7 @@ channel = 26
 while True:
   current_temp = read_temp()
  
-  if(current_temp >=40):
+  if(current_temp >=30):
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(channel, GPIO.OUT)
     GPIO.output(channel, GPIO.HIGH)

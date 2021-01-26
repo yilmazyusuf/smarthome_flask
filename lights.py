@@ -9,7 +9,16 @@ from datetime import datetime
 from flask import jsonify
 import os
 
-curtain_pins = {'living_room':{'a':23,'b':24,'action_second':1},'qubisch_room':{'a':6,'b':13,'action_second':49}}
+
+#12 failed.
+#Pull down on gpio 16 failed.
+#Pull down on gpio 17 failed(ds18b20)
+
+#Pull up on gpio 20 failed.
+#Pull up on gpio 21 failed.
+#Pull up on gpio 27
+
+curtain_pins = {'living_room':{'a':23,'b':24,'en':12,'action_second':16},'qubisch_room':{'a':6,'b':13,'en':16,'action_second':40}}
 
 app = Flask(__name__)
 
@@ -35,6 +44,7 @@ def stream():
 
 @app.route("/lights/living_room_middle")
 def lights_living_room_middle():
+    
     current_status = get_current_status('living_room_middle')
     changed = change_status(current_status,22)
     update(changed,'living_room_middle')
@@ -44,7 +54,7 @@ def lights_living_room_middle():
 @app.route("/lights/living_room_led")
 def lights_living_room_led():
     current_status = get_current_status('living_room_led')
-    changed = change_status(current_status,17)
+    changed = change_status(current_status,18)
     update(changed,'living_room_led')
 
     return "ok"
@@ -123,7 +133,10 @@ def closing_curtain(curtain_room):
 def curtains_open(curtain_room):
     room_pins = curtain_pins[curtain_room]
     GPIO.setmode(GPIO.BCM)
-    
+    GPIO.setup(room_pins['en'],GPIO.OUT)
+    p=GPIO.PWM(room_pins['en'],12000)
+    p.start(100)
+
     GPIO.setup(room_pins['b'],GPIO.OUT)
     GPIO.output(room_pins['b'],GPIO.LOW)
 
@@ -139,12 +152,15 @@ def curtains_open(curtain_room):
     GPIO.output(room_pins['b'],GPIO.LOW)
     GPIO.output(room_pins['a'],GPIO.LOW)
     update_curtain(2,curtain_room)
-    GPIO.cleanup([room_pins['a'],room_pins['b']])
+    GPIO.cleanup([room_pins['a'],room_pins['b'],room_pins['en']])
 
 def curtains_close(curtain_room):
 
     room_pins = curtain_pins[curtain_room]
     GPIO.setmode(GPIO.BCM)
+    GPIO.setup(room_pins['en'],GPIO.OUT)
+    p=GPIO.PWM(room_pins['en'],12000)
+    p.start(100)
     
     GPIO.setup(room_pins['b'],GPIO.OUT)
     GPIO.setup(room_pins['a'],GPIO.OUT)
@@ -157,7 +173,7 @@ def curtains_close(curtain_room):
     GPIO.output(room_pins['a'],GPIO.LOW)
     GPIO.output(room_pins['b'],GPIO.LOW)
     update_curtain(1,curtain_room)
-    GPIO.cleanup([room_pins['a'],room_pins['b']])
+    GPIO.cleanup([room_pins['a'],room_pins['b'],room_pins['en']])
 
 def get_curtain_status(curtain_room):
     conn = sqlite3.connect("/home/pi/Documents/smarthome_flask/qubis.db")
