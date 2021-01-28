@@ -10,11 +10,11 @@ from flask import jsonify
 import os
 
 
-#12 failed.
-#Pull down on gpio 16 failed.
+#12 failed. (curtains en)
+#Pull down on gpio 16 failed. (curtains en)
 #Pull down on gpio 17 failed(ds18b20)
+#Pull up on gpio 20 failed.(humudity)
 
-#Pull up on gpio 20 failed.
 #Pull up on gpio 21 failed.
 #Pull up on gpio 27
 
